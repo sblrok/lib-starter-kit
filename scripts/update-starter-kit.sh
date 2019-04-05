@@ -1,3 +1,3 @@
 HOME='.'
-rsync -avE --progress  ../analytics/ $HOME --exclude='*/'
-rsync -avE --progress  ../analytics/scripts/* $HOME/scripts
+rsync -avE --progress  ../lib-starter-kit/ $HOME --exclude='*/'
+rsync -avE --progress  ../lib-starter-kit/scripts/* $HOME/scripts
