@@ -22,6 +22,8 @@
     "lint:md": "remark -q .",
     "lint:ts": "tslint -p . -c tslint.json -t stylish",
     "spellcheck": "yaspeller *.md",
+    "size": "size-limit",
+    "size:why": "size-limit --why",
     "test": "npm run lint && npm run spellcheck",
     "pretty-staged": "pretty-quick --staged",
     "lint-staged": "lint-staged",
@@ -37,12 +39,8 @@
   "files": [
     "build/"
   ],
-  "dependencies": {
-    "mobx-react": "^5.4.3",
-    "prop-types": "^15.7.2",
-    "yaspeller": "^5.0.1"
-  },
   "devDependencies": {
+    "yaspeller": "^5.0.1",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
@@ -75,6 +73,7 @@
     "pretty-quick": "^1.10.0",
     "remark": "^10.0.1",
     "remark-cli": "^6.0.1",
-    "remark-preset-lint-recommended": "^3.0.2"
+    "remark-preset-lint-recommended": "^3.0.2",
+    "size-limit": "^1.0.0"
   }
 }
