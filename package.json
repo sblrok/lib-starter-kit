@@ -6,13 +6,13 @@
   "keywords": [],
   "scripts": {
     "dev": "npm run watch",
+    "dev:lib1": "npm run watch --scope @lib-initial-kit/lib1",
     "release": "lerna publish --skip-npm",
     "bootstrap": "lerna run bootstrap",
     "build": "lerna run build",
-    "watch": "lerna run watch",
+    "watch": "lerna run dev",
     "link": "lerna run link",
     "bump": "lerna run bump",
-
     "dev2": "concurrently --kill-others \"npm dev:ts\" \"npm dev:js\"",
     "dev:js": "lerna exec --parallel -- cross-env-shell node \\$LERNA_ROOT_PATH/scripts/watch-js.js",
     "dev:ts": "lerna exec --parallel -- cross-env-shell node \\$LERNA_ROOT_PATH/scripts/watch-ts.js",

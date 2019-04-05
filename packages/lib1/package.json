@@ -18,5 +18,8 @@
     "link": "../../scripts/package-link.sh",
     "bump": "../../scripts/package-bump.sh",
     "release": "../../scripts/package-release.sh"
+  },
+  "dependencies": {
+    "react": "^16.8.6"
   }
 }
