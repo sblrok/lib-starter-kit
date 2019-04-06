@@ -4,6 +4,8 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 rm -rf .babelrc && \
 rm -rf .babelrc.js && \
 cp ../../.babelrc.js . && \
+rm -rf .eslintrc.js && \
+cp ../../.eslintrc-package.js .eslintrc.js && \
 rm -rf node_modules && \
 npm i && \
 mkdir -p node_modules && \

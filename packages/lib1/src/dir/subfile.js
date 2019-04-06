@@ -1,4 +1,6 @@
-import minify from '~/minify';
-import test from '~/test';
+import plus from '~/plus';
+// import plus2 from '../plus';
+// const asd = require('../minify');
 
-minify();
+plus();
+// plus2();

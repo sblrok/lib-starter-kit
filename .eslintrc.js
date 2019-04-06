@@ -33,16 +33,17 @@ const res =  {
   },
   settings: {
     "import/resolver": {
-      "babel-plugin-root-import": {}
+      "babel-plugin-root-import": [{
+        "rootPathPrefix": "~",
+        "rootPathSuffix": "./src"
+      }, {
+        "rootPathPrefix": "~",
+        "rootPathSuffix": "./packages/lib1/src"
+      }, {
+        "rootPathPrefix": "~",
+        "rootPathSuffix": "./packages/lib2/src"
+      }]
     },
-    // 'import/resolver': {
-    //   alias: {
-    //     map: [
-    //       ['~', path.resolve('./')],
-    //     ],
-    //     extensions: ['.ts', '.js', '.jsx', '.json']
-    //   },
-    // }
   }
 }
 

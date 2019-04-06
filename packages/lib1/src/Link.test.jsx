@@ -1,10 +1,11 @@
-/* global describe, test, expect */
+/* global test, expect */
 import React from 'react';
-import renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer';  //eslint-disable-line
 import Link from './Link';
 
 test('Link changes the class when hovered', () => {
   const component = renderer.create(
+    // eslint-disable-next-line jsx-a11y/anchor-is-valid
     <Link page="http://www.facebook.com">
       Facebook
     </Link>,

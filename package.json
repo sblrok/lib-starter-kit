@@ -8,17 +8,15 @@
     "dev": "npm run watch",
     "dev:lib1": "npm run watch --scope @lib-initial-kit/lib1",
     "release": "lerna publish --skip-npm",
-    "bootstrap": "lerna run bootstrap",
-    "build": "lerna run build",
-    "watch": "lerna run dev",
-    "link": "lerna run link",
-    "bump": "lerna run bump",
-    "dev2": "concurrently --kill-others \"npm dev:ts\" \"npm dev:js\"",
-    "dev:js": "lerna exec --parallel -- cross-env-shell node \\$LERNA_ROOT_PATH/scripts/watch-js.js",
-    "dev:ts": "lerna exec --parallel -- cross-env-shell node \\$LERNA_ROOT_PATH/scripts/watch-ts.js",
+    "bootstrap": "lerna exec -- npm run bootstrap",
+    "build": "lerna exec -- npm run build",
+    "watch": "lerna exec -- npm run dev",
+    "link": "lerna exec -- npm run link",
+    "bump": "lerna exec -- npm run bump",
     "lint": "npm run lint:js && npm run lint:md .",
     "lint:ci": "npm runlint:js --format ./node_modules/eslint-teamcity/index.js . && npm lint:ts **/*.ts && npm lint:md .",
-    "lint:js": "cross-env NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.json,.html --report-unused-disable-directives .",
+    "lint:js": "lerna exec -- npm run lint:js",
+    "lint:js2": "cross-env NODE_ENV=production eslint --cache --cache-location=.cache/eslint --ext .js,.jsx,.json --report-unused-disable-directives packages/*/src",
     "lint:md": "remark -q .",
     "lint:ts": "tslint -p . -c tslint.json -t stylish",
     "spellcheck": "yaspeller *.md",
@@ -34,6 +32,7 @@
     "test-latest-cra": "npm --prefix --cwd lib/cli run test-latest-cra",
     "test:cli": "npm --prefix lib/cli run test",
     "error": "echo 123 && exit 1",
+    "dev2": "concurrently --kill-others \"npm dev:ts\" \"npm dev:js\"",
     "custom": "lerna exec --scope @lskjs/ui -- \\$LERNA_ROOT_PATH/scripts/package-watch.sh",
     "custom2": "lerna exec --scope @lskjs/general -- \\$LERNA_ROOT_PATH/scripts/package-watch.sh"
   },
@@ -83,5 +82,8 @@
     "remark-preset-lint-recommended": "^3.0.2",
     "size-limit": "^1.0.0",
     "yaspeller": "^5.0.1"
+  },
+  "dependencies": {
+    "lerna-jsconfig": "^0.1.4"
   }
 }
