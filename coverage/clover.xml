@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1554509533934" clover="3.2.0">
+  <project timestamp="1554509533934" name="All files">
+    <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="5" elements="18" coveredelements="17" complexity="0" loc="11" ncloc="11" packages="1" files="2" classes="2"/>
+    <file name="Link.jsx" path="/Users/isuvorov/projects/lib-starter-kit/packages/lib1/src/Link.jsx">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="12" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="30" count="3" type="stmt"/>
+      <line num="31" count="3" type="stmt"/>
+    </file>
+    <file name="plus.js" path="/Users/isuvorov/projects/lib-starter-kit/packages/lib1/src/plus.js">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="5" type="stmt"/>
+    </file>
+  </project>
+</coverage>

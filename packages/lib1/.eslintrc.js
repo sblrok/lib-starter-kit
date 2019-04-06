@@ -32,18 +32,13 @@ const res =  {
     'no-throw-literal': 'off',    
   },
   settings: {
-    "import/resolver": {
-      "babel-plugin-root-import": {}
-    },
-    // 'import/resolver': {
-    //   alias: {
-    //     map: [
-    //       ['~', path.resolve('./')],
-    //     ],
-    //     extensions: ['.ts', '.js', '.jsx', '.json']
-    //   },
-    // }
+    'import/resolver': {
+      alias: {
+        map: [
+          ['~', path.resolve('./src')],
+        ],
+        extensions: ['.ts', '.js', '.jsx', '.json']
+      },
+    }
   }
 }
-
-module.exports = res;

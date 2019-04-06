@@ -7,4 +7,5 @@ const obj = {
 console.log({
   ...obj,
   d: 'd',
+  e: 'e',
 });
