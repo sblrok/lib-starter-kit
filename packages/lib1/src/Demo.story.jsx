@@ -15,9 +15,9 @@ Demo.defaultProps = {
   children: 'Hello World',
 };
 
-export default ({ storiesOf, action, knob }) => {
-  return storiesOf('Demo', module)
+export default ({ storiesOf }) => (
+  storiesOf('Demo', module)
     .add('default', () => (
       <Demo />
-    ));
-};
+    ))
+);

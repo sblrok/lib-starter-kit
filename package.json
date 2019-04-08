@@ -13,6 +13,7 @@
     "watch": "lerna exec -- npm run dev",
     "link": "lerna exec -- npm run link",
     "bump": "lerna exec -- npm run bump",
+    "storybook": "./scripts/storybook.sh",
     "lint": "npm run lint:js && npm run lint:md .",
     "lint:ci": "npm runlint:js --format ./node_modules/eslint-teamcity/index.js . && npm lint:ts **/*.ts && npm lint:md .",
     "lint:js": "lerna exec -- npm run lint:js",
@@ -81,9 +82,8 @@
     "remark-cli": "^6.0.1",
     "remark-preset-lint-recommended": "^3.0.2",
     "size-limit": "^1.0.0",
-    "yaspeller": "^5.0.1"
-  },
-  "dependencies": {
-    "lerna-jsconfig": "^0.1.4"
+    "yaspeller": "^5.0.1",
+    "@storybook/react": "^5.0.6",
+    "storybox": "^1.1.0"
   }
 }
