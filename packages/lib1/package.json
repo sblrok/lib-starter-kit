@@ -23,5 +23,15 @@
   "dependencies": {
     "react": "^16.8.6",
     "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.3",
+    "@storybook/react": "^5.0.6",
+    "babel-plugin-root-import": "^6.1.0",
+    "babel-plugin-transform-class-property-arrow-to-bind": "^1.1.0",
+    "storybox": "^1.1.0"
   }
 }
