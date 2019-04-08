@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import TSComponent from './TSComponent.tsx';
+import TSComponent from './TSComponent';
 
 const Demo = ({ color, children, ...props }) => (
   <div style={{ color }} {...props}>
@@ -20,7 +20,7 @@ Demo.defaultProps = {
 };
 
 export default ({ storiesOf }) => (
-  storiesOf('Demo', module)
+  storiesOf('Typescript', module)
     .add('default', () => (
       <Demo />
     ))
