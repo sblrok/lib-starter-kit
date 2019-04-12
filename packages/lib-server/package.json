@@ -10,6 +10,7 @@
   "repository": "https://github.com/isuvorov/lib-starter-kit/tree/master/packages/lib-server",
   "keywords": [],
   "scripts": {
+    "start": "node index.js",
     "dev": "npm run watch",
     "postversion": "npm run release",
     "lint:js": "../../scripts/package-lint-js.sh",
@@ -22,9 +23,20 @@
     "storybook": "../../scripts/package-storybook.sh"
   },
   "dependencies": {
-    "react": "^16.8.6",
-    "prop-types": "^15.7.2",
+    "@babel/polyfill": "^7.4.3",
+    "@lskjs/apiquery": "^0.32.2",
+    "@lskjs/db": "^0.32.2",
+    "@lskjs/i18": "^0.32.2",
+    "@lskjs/log": "^0.32.2",
+    "@lskjs/module": "^0.32.2",
     "@lskjs/server": "^0.32.2",
-    "@lskjs/utils": "^0.32.2"
+    "@lskjs/utils": "^0.32.2",
+    "bluebird": "^3.5.3",
+    "js-cookie": "^2.2.0",
+    "lodash": "^4.17.11",
+    "mobx": "^5.9.4",
+    "moment": "2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6"
   }
 }
