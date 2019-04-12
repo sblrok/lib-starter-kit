@@ -1,4 +1,4 @@
-const babelrc = require('../.babelrc');
+const babelrc = require('../.babelrc.js');
 module.exports = async ({ config, mode }) => {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
