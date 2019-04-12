@@ -1,5 +1,5 @@
 {
-  "name": "@lib-starter-kit/lib2",
+  "name": "@lib-starter-kit/lib-server",
   "version": "0.0.1",
   "description": "Hello world",
   "author": "Igor Suvorov <hi@isuvorov.com>",
@@ -7,7 +7,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "repository": "https://github.com/isuvorov/lib-starter-kit/tree/master/packages/lib2",
+  "repository": "https://github.com/isuvorov/lib-starter-kit/tree/master/packages/lib-server",
   "keywords": [],
   "scripts": {
     "dev": "npm run watch",
@@ -23,6 +23,8 @@
   },
   "dependencies": {
     "react": "^16.8.6",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "@lskjs/server": "^0.32.2",
+    "@lskjs/utils": "^0.32.2"
   }
 }

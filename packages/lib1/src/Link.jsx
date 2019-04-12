@@ -27,7 +27,7 @@ export default class Link extends React.Component {
 
   render() {
     const { className } = this.state;
-    const { page, children, props } = this.props; // eslint-disable-line react/prop-types
+    const { page, children, props, } = this.props; // eslint-disable-line
     return (
       <a
         className={className}
