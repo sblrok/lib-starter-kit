@@ -5,5 +5,5 @@ env NODE_OPTIONS=--max_old_space_size=4096 \
 env NODE_OPTIONS=--max_old_space_size=4096 \
   ../../node_modules/.bin/styleguidist build && \
 
-rsync -avz release-storybook/* ${DEPLOY_PATH}
-rsync -avz release-styleguide/* ${DEPLOY_PATH}/docs
+rsync -avz release-storybook/* ${DEPLOY_PATH:-./release-docs}
+rsync -avz release-styleguide/* "${DEPLOY_PATH:-./release-docs}/docs"

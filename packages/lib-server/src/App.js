@@ -2,14 +2,14 @@ import ServerApp from '@lskjs/server';
 
 export default class App extends ServerApp {
   async init() {
-    super.init();
+    await super.init();
     console.log('Fucking init');
   }
   getModels() {
     return {};
   }
   async run() {
-    super.run();
+    await super.run();
     console.log('Fucking run');
   }
 }
