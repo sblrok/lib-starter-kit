@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable global-require */
 import ServerApp from '@lskjs/server';
 
 export default class App extends ServerApp {
@@ -6,7 +8,9 @@ export default class App extends ServerApp {
     console.log('Fucking init');
   }
   getModels() {
-    return {};
+    return {
+      UserModel: require('./UserModel').default(this),
+    };
   }
   async run() {
     await super.run();
