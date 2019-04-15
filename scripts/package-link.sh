@@ -30,3 +30,4 @@ npm link @lskjs/ui
 npm link @lskjs/upload
 npm link @lskjs/utils
 cd ..
+cp -R node_modules build && \

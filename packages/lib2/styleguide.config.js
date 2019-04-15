@@ -1,6 +1,5 @@
 module.exports = {
   components: 'src/**/*.jsx',
-  styleguideDir: 'release-styleguide',
   webpackConfig: {
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
