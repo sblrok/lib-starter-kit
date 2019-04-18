@@ -1,4 +1,5 @@
 VAR=$(git status --porcelain 2>/dev/null | wc -l)
+echo $VAR
 if ! [ -z "$VAR" ]; then
     echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" && \
     echo "Working tree has uncommitted changes, please commit or remove changes before continuing." && \
