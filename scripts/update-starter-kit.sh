@@ -1,3 +1,11 @@
+VAR=$(git status --porcelain 2>/dev/null | wc -l)
+if ! [ -z "$VAR" ]; then
+    echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" && \
+    echo "Working tree has uncommitted changes, please commit or remove changes before continuing." && \
+    echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" && \
+    exit 1
+fi
+
 HOME='.'
 git pull ../lib-starter-kit
 rsync -avE --progress  ../lib-starter-kit/ $HOME --exclude='*/' --exclude='lerna.json' --exclude='.huskyrc.json' --exclude='README.md'
