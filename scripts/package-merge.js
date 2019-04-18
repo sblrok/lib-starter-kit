@@ -1,7 +1,5 @@
-const baseJson = require('../../scripts/package.json');
-
-const json = require('./package.json');
-
+const json = require(process.cwd() + '/package.json'); // eslint-disable-line
+const baseJson = require(__dirname + '/package.json'); // eslint-disable-line
 
 const newJson = {
   ...baseJson,
@@ -12,4 +10,4 @@ const newJson = {
   },
 };
 
-require('fs').writeFileSync('./package.json', JSON.stringify(newJson));
+require('fs').writeFileSync('./package.json', JSON.stringify(newJson, null, 2));
