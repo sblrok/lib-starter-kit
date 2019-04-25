@@ -21,11 +21,11 @@ module.exports = {
     }],
     'emotion',
   ],
-  env: {
-    production: {
-      presets: ['minify'],
-    },
-  },
+  // env: {
+  //   production: {
+  //     presets: ['minify'],
+  //   },
+  // },
 };
 
 // https://github.com/trayio/babel-plugin-webpack-alias
