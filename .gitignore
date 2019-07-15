@@ -9,3 +9,5 @@ release-*
 packages/*/build
 packages/*/release
 packages/*/release-*
+.env.js
+.env.json
