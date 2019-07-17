@@ -11,7 +11,7 @@
     "bootstrap": "./scripts/bootstrap.sh",
     "update": "lerna exec -- npm run update",
     "update-force": "lerna exec -- ../../scripts/package-update.sh",
-    "build": "lerna exec -- npm run build",
+    "build": "./scripts/build.sh",
     "watch": "lerna run --parallel watch",
     "link": "lerna exec -- npm run link",
     "bump": "lerna exec -- npm run bump",
