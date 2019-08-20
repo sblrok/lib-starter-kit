@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable global-require */
 import ServerApp from '@lskjs/server';
 
 export default class App extends ServerApp {

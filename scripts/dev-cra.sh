@@ -1,7 +1,7 @@
 #!/bin/sh
 cd packages/app
 
-../../node_modules/concurrently/bin/concurrently.js \
+../../node_modules/concurrently/bin/concurrently.js -rki  \
     "npm run watch" \
     " \
        sleep 10 && \
@@ -16,4 +16,3 @@ cd packages/app
        npm run server:dev \
     "
 cd ../..
-#npm run dev:cra"
