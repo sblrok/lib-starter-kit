@@ -5,7 +5,7 @@
   "repository": "https://github.com/isuvorov/lib-starter-kit",
   "keywords": [],
   "scripts": {
-    "dev": "BUILD_PARAMS=--copy-files ./scripts/dev.sh",
+    "dev": "./scripts/dev.sh",
     "dev:lib1": "npm run watch --scope @lib-initial-kit/lib1",
     "release": "lerna publish --skip-npm",
     "bootstrap": "./scripts/bootstrap.sh",
