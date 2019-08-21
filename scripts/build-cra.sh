@@ -1,4 +1,5 @@
 # #!/bin/sh
+export NODE_OPTIONS=--max_old_space_size=4092 && \
 cd packages/app && \
 npm run build && \
 echo "OK - npm run build" && \
