@@ -23,6 +23,11 @@ const res =  {
     __SERVER__: true,
     __CLIENT__: true,
     __DEV__: true,
+    __PROD__: true,
+    __IMAGE__: true,
+    __VERSION__: true,
+    __INSTANCE__: true,
+    __STAGE__: true,
   },
   rules: {
     'max-len': [
