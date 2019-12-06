@@ -1,18 +1,12 @@
 /* eslint-disable global-require */
-import './polyfill';
 import ServerApp from '@lskjs/server';
 import ready from '@lskjs/utils/polyfill';
 import ReactApp from '@lskjs/reactapp';
 import sms from '@lskjs/sms';
 import BaseHtml from '@lskjs/reactapp/Html';
 import NotifyLogger from 'notify-logger';
-import map from 'lodash/map';
 import get from 'lodash/get';
-import pack from './pack';
-import Schedule from './Schedule';
 import Grant from './Grant';
-import PushNotifications from './PushNotifications';
-import createWs from './ws';
 
 // import cors from 'cors';
 import Uapp from './Uapp';
@@ -66,8 +60,6 @@ export default class App extends ServerApp {
 
 
   grant = new Grant({ app: this });
-  pushNotifications = new PushNotifications({ app: this, config: this.config.fcm });
-  initEvents = require('./methods/initEvents').default;
 
   staticDir = `${__dirname}/../public`;
   getStatics() {
@@ -84,12 +76,6 @@ export default class App extends ServerApp {
     return {
       // ...super.getModels(),
       ...require('./models').default(this),
-    };
-  }
-  getResponses() {
-    return {
-      ...super.getResponses(),
-      pack: pack(this),
     };
   }
   getModules() {
@@ -167,7 +153,6 @@ export default class App extends ServerApp {
 
   async init() {
     await super.init();
-    await this.initEvents();
     this.sms = sms(this.config.sms);
     this.logger = new NotifyLogger(this.config.notify);
     // this.logger.trace('bratishka init');
@@ -180,117 +165,6 @@ export default class App extends ServerApp {
       resolve: this.resolve,
       express: this.express,
     });
-    this.schedule = new Schedule(this);
     await this.reactApp.start();
-  }
-  async run() {
-    await super.run();
-    const cb = async (socket, socket2) => {
-      const { chatId, token } = socket.handshake.query;
-      // console.log('socket.handshake', socket.handshake);
-      // console.log({ chatId, token });
-      const { UserModel } = this.models;
-      await new Promise((resolve, reject) => {
-        socket.request.token = token;
-        this.middlewares.parseUser(socket.request, socket.response, (err, data) => {
-          // console.log('socket.request.user', socket.request.user);
-          if (err) return reject(err);
-          resolve(data);
-        });
-      });
-      // console.log('join', `chats__${chatId}`);
-      const chatName = `chats__${chatId}`;
-      socket.join(chatName);
-      // socket.join('chats');
-      // setInterval(() => {
-      //   this.ws.of('/api/v5/chats').to(chatName).emit('message', { content: { text: 'Hello World' } });
-      // }, 1000);
-
-      socket.on('readAll', async (params) => {
-        const req = {
-          user: socket.request.user,
-          data: {
-            ...params,
-            _id: chatId,
-          },
-        };
-        await this.readAll(req);
-      });
-      socket.on('sendMessage', async (params) => {
-        // console.log('on sendMessage@@@@');
-        const req = {
-          user: socket.request.user,
-          data: {
-            ...params,
-            _id: chatId,
-          },
-        };
-        // console.log('prepare sendMessage');
-        await this.sendMessage(req);
-      });
-      socket.on('findLastMessages', async (params) => {
-        const req = {
-          user: socket.request.user,
-          data: {
-            ...params,
-            _id: chatId,
-          },
-        };
-
-        console.log('findLastMessages data', req.data);
-        const pack = await this.findLastMessages(req);
-        console.log('findLastMessages res', JSON.stringify(pack, null, 2));
-        socket.emit('lastMessages', pack);
-      });
-      // await this.ws.atachMiddlwares(socket);
-      // console.log('## connection', socket.qwe, socket.data, socket.req);
-
-      // console.log('## connection', socket, socket.data, socket.req);
-      // socket.on('ping', (data) => {
-      //   console.log('## ping', data);
-      //   socket.emit('message', 'pong');
-      // });
-      // socket.on('event', (data) => {
-      //   console.log('## event', data);
-      //   socket.emit('message', 'pong');
-      // });
-      // socket.on('disconnect', () => {
-      //   console.log('## disconnect');
-      // });
-      // setInterval(() => {
-      //   socket.emit('message0', 'test');
-      // }, 1000);
-    };
-
-    const nsp = this.ws.of('/api/v5/chats').on('connection', cb);
-    const nsp2 = this.ws.of('/api/v5/events').on('connection', async (socket) => {
-      const { token } = socket.handshake.query;
-      // const { UserModel } = this.models;
-      await new Promise((resolve, reject) => {
-        socket.request.token = token;
-        this.middlewares.parseUser(socket.request, socket.response, (err, data) => {
-          // console.log('socket.request.user', socket.request.user);
-
-          if (err) return reject(err);
-          resolve(data);
-        });
-      });
-      const { _id: userId } = socket.request.user;
-      // console.log('socket.join', `users__${userId}`);
-
-      socket.join(`users__${userId}`);
-    });
-    if (this.modules.mailer) {
-      this.modules.mailer.theme = {
-        colors: {
-          primary: 'red',
-          secondary: 'blue',
-        },
-      };
-      this.modules.mailer.templates = {
-        ...this.modules.mailer.templates,
-        authCode: require('./modules/mailer/authCode').default,
-      };
-    }
   }
 }
