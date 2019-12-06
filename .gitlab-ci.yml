@@ -1,0 +1,73 @@
+image: docker:latest
+
+stages:
+  - build
+  - create_image
+  - deploy
+
+variables:
+  DOCKER_IMAGE: "${CI_REGISTRY}/${CI_PROJECT_PATH}"
+  CONTAINER_IMAGE: ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHA}
+  CONTAINER_TAG: ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_REF_NAME}
+
+build:
+  stage: build
+  image: node:8.9.1
+  only:
+    - master
+    - staging
+  script:
+    - NODE_ENV=development npm install
+    - npm run bootstrap
+    - npm run build
+  variables:
+    NODE_ENV: production
+    STAGE: master
+  artifacts:
+    paths:
+      - packages/app/build
+      - packages/app/public
+      - packages/app/cra/build
+
+create_image:
+  stage: create_image
+  image: docker:latest
+  only:
+    - master
+    - staging
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker build -t ${CONTAINER_IMAGE} .
+    - docker tag ${CONTAINER_IMAGE} ${CONTAINER_TAG}
+    - docker push ${CONTAINER_IMAGE}
+    - docker push ${CONTAINER_TAG}
+
+.deploy: &deploy
+  stage: deploy
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker stack deploy --with-registry-auth --compose-file=./docker-stack.yml ${CI_PROJECT_PATH_SLUG}__${STAGE}
+
+# deploy_staging:
+#   <<: *deploy
+#   environment:
+#     name: staging
+#     url: https://kit-staging.mgbeta.com
+#   variables:
+#     STAGE: staging
+#     VIRTUAL_HOST: hijay5.isuvorov.com
+#     LETSENCRYPT_HOST: hijay5.isuvorov.com
+#   only:
+#     - staging
+    
+deploy_master:
+  <<: *deploy
+  environment:
+    name: master
+    url: https://kit.mgbeta.ru
+  variables:
+    STAGE: master
+    VIRTUAL_HOST: 'kit.mgbeta.ru,bezruk.net'
+    LETSENCRYPT_HOST: 'kit.mgbeta.ru,bezruk.net'
+  only:
+    - master
