@@ -12,7 +12,7 @@ COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /app
-COPY .npmrc /app/.npmrc
+# COPY .npmrc /app/.npmrc
 COPY packages/app/package.json /app/package.json
 COPY packages/app/package-lock.json /app/package-lock.json
 RUN NODE_ENV=development npm install
