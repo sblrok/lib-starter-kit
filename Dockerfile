@@ -21,7 +21,7 @@ RUN NODE_ENV=development npm install
 COPY packages/app/build /app
 # COPY packages/app/cra/build /app/public
 COPY packages/app/public /public
-COPY packages/app/locales /app/locales
+# COPY packages/app/locales /app/locales
 COPY packages/app/start.sh /app/start.sh
 
 EXPOSE 80
