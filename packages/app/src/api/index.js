@@ -2,10 +2,10 @@ import IndexApi from './IndexApi';
 
 const getTemplate = (req, res) => {
   try {
-    const str = require('fs').readFileSync(`${process.cwd()}/public/index.html`).toString();
+    const str = require('fs').readFileSync(`${process.cwd()}/../public/template.html`).toString();
     return res.send(str);
   } catch (err) {
-    const str = require('fs').readFileSync(`${process.cwd()}/../public/index.html`).toString();
+    const str = require('fs').readFileSync(`${process.cwd()}/public/template.html`).toString();
     return res.send(str);
   }
   // require('fs').readFileSync(`${process.cwd()}/packages/app/public/index.html`).toString();
