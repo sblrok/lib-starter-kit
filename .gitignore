@@ -6,8 +6,9 @@ lerna-debug.log
 build
 release
 release-*
+storage
 packages/*/build
 packages/*/release
 packages/*/release-*
-.env.js
-.env.json
+packages/*/storage
+.env*
