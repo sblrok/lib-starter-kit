@@ -2,7 +2,6 @@
 import ServerApp from '@lskjs/server';
 import ready from '@lskjs/utils/polyfill';
 import ReactApp from '@lskjs/reactapp';
-import sms from '@lskjs/sms';
 import BaseHtml from '@lskjs/reactapp/Html';
 import NotifyLogger from 'notify-logger';
 import get from 'lodash/get';
@@ -153,7 +152,6 @@ export default class App extends ServerApp {
 
   async init() {
     await super.init();
-    this.sms = sms(this.config.sms);
     this.logger = new NotifyLogger(this.config.notify);
     // this.logger.trace('bratishka init');
     this.app.enable('trust proxy');
