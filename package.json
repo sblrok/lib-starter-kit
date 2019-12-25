@@ -107,6 +107,7 @@
     "@lskjs/dev": "^0.33.10",
     "emotion": "^10.0.9",
     "emotion-server": "^10.0.9",
+    "react-router-dom": "5.1.2",
     "telegraf": "^3.30.1"
   }
 }

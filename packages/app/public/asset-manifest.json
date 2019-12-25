@@ -1,18 +1,33 @@
 {
   "files": {
-    "main.js": "/static/js/main.7641cd77.chunk.js",
-    "main.js.map": "/static/js/main.7641cd77.chunk.js.map",
+    "main.css": "/static/css/main.a11fcd4b.chunk.css",
+    "main.js": "/static/js/main.d920d494.chunk.js",
+    "main.js.map": "/static/js/main.d920d494.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e89362ac.js",
     "runtime-main.js.map": "/static/js/runtime-main.e89362ac.js.map",
-    "static/js/2.b0cecae0.chunk.js": "/static/js/2.b0cecae0.chunk.js",
-    "static/js/2.b0cecae0.chunk.js.map": "/static/js/2.b0cecae0.chunk.js.map",
+    "static/js/2.2f4fe72e.chunk.js": "/static/js/2.2f4fe72e.chunk.js",
+    "static/js/2.2f4fe72e.chunk.js.map": "/static/js/2.2f4fe72e.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.4c2eeb577bf8177db77f8caaa25ca644.js": "/precache-manifest.4c2eeb577bf8177db77f8caaa25ca644.js",
-    "service-worker.js": "/service-worker.js"
+    "precache-manifest.4c1b09213ed9113e5460b180b9a9f591.js": "/precache-manifest.4c1b09213ed9113e5460b180b9a9f591.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.a11fcd4b.chunk.css.map": "/static/css/main.a11fcd4b.chunk.css.map",
+    "static/media/style.css": "/static/media/bg-img-4.6c9ba5e7.svg",
+    "static/media/banner1.png": "/static/media/banner1.fff2c616.png",
+    "static/media/bg_1.jpg": "/static/media/bg_1.48b19901.jpg",
+    "static/media/bg_2.jpg": "/static/media/bg_2.14ace77f.jpg",
+    "static/media/carousel1.png": "/static/media/carousel1.2fd908f9.png",
+    "static/media/carousel2.png": "/static/media/carousel2.0d8374fa.png",
+    "static/media/carousel3.png": "/static/media/carousel3.9d6d6f01.png",
+    "static/media/materialdesignicons.min.css": "/static/media/materialdesignicons-webfont.e971abae.eot",
+    "static/media/open-iconic.woff": "/static/media/open-iconic.3cf97837.woff",
+    "static/media/open-iconic.eot": "/static/media/open-iconic.47151e87.eot",
+    "static/media/open-iconic.otf": "/static/media/open-iconic.527eff64.otf",
+    "static/media/open-iconic.ttf": "/static/media/open-iconic.93cc7aa6.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.e89362ac.js",
-    "static/js/2.b0cecae0.chunk.js",
-    "static/js/main.7641cd77.chunk.js"
+    "static/js/2.2f4fe72e.chunk.js",
+    "static/css/main.a11fcd4b.chunk.css",
+    "static/js/main.d920d494.chunk.js"
   ]
 }

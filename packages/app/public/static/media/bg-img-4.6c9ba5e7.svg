@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="184px" height="575px" viewBox="0 0 184 575" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53 (72520) - https://sketchapp.com -->
+    <title>Rectangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="19.5925988" y="11.5431436" width="351" height="574" rx="175.5"></rect>
+    </defs>
+    <g id="Daneb_Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dario_landngpage" transform="translate(0.000000, -2698.000000)">
+            <g id="Rectangle" transform="translate(-195.000000, 2687.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#3373FE" transform="translate(195.092599, 298.543144) rotate(184.000000) translate(-195.092599, -298.543144) " xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
