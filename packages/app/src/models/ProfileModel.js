@@ -12,7 +12,7 @@ import nodemailer from 'nodemailer';
 import bcrypt from 'bcryptjs';
 import Promise from 'bluebird';
 import validator from 'validator';
-import sharp from 'sharp';
+// import sharp from 'sharp';
 import fs from 'fs';
 import Schedule from 'node-schedule';
 import moment from 'moment';

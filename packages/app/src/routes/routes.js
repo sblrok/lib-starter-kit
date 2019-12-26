@@ -12,9 +12,7 @@ export default {
   children: [
     {
       path: '',
-      action({ page, config = {} }) {
-        return page.component(import('./IndexPage'), { about: config.about });
-      },
+      ...require('./home').default,
     },
     {
       path: '/auth',

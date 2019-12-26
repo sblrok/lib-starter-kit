@@ -1,4 +1,4 @@
-import sharp from 'sharp';
+// import sharp from 'sharp';
 import fs from 'fs';
 import MongooseSchema from '@lskjs/db/MongooseSchema';
 import getFileExtension from '@lskjs/utils/getFileExtension';
