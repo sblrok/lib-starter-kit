@@ -26,9 +26,7 @@ export default function () {
       //
     },
     '/assets': { '*': () => ({ err: '!!!! route' }) }, // TODO: ПОДУМАТЬ
-    '*': async (req, ...args) => {
-      req.url = req.originalUrl;
-      await this.reactApp.render(req, ...args);
+    '*': async this.reactApp.render,;
     },
   };
 }

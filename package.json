@@ -33,13 +33,7 @@
     "lint-staged": "lint-staged",
     "publish:latest": "lerna publish --exact --concurrency 1 --force-publish",
     "publish:next": "npm run publish:latest -- --npm-tag=next",
-    "publish:debug": "npm run publish:latest -- --npm-tag=debug --no-push",
-    "test-latest-cra": "npm --prefix --cwd lib/cli run test-latest-cra",
-    "test:cli": "npm --prefix lib/cli run test",
-    "error": "echo 123 && exit 1",
-    "dev2": "concurrently --kill-others \"npm dev:ts\" \"npm dev:js\"",
-    "custom": "lerna exec --scope @lskjs/ui -- \\$LERNA_ROOT_PATH/scripts/package-watch.sh",
-    "custom2": "lerna exec --scope @lskjs/general -- \\$LERNA_ROOT_PATH/scripts/package-watch.sh"
+    "publish:debug": "npm run publish:latest -- --npm-tag=debug --no-push"
   },
   "files": [
     "build/"
