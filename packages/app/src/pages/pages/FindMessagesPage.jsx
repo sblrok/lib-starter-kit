@@ -1,8 +1,14 @@
+import React from 'react';
 
-=> Сообщения
--Поиск	
+
+export default () => (
+  <div>
+    {/* => Сообщения
+-Поиск
   -нажать для ввода - ищем и матчи и тест в переписке
 
 
   + Friends.jsx
-  + Chats.jsx
+  + Chats.jsx */}
+  </div>
+);

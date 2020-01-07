@@ -4,8 +4,8 @@ import Page from '@lskjs/ui/Page';
 export default () => (
   <Page>
     <Page.Header />
-    <Page.Body>
-        - Раскрытая карточка
+    <Page.Body> {/* задел на будущее */}
+        - Раскрытая карточка 
         - чуть больше инфы
           - инста
           - расстояние
