@@ -13,6 +13,11 @@ const getAuthControls = ({ i18 = { t: a => a } }) => ({
     required: true,
     type: 'password',
   },
+  name: {
+    component: Input,
+    title: i18.t('authForm.name'),
+    required: true,
+  },
 });
 
 export default getAuthControls;

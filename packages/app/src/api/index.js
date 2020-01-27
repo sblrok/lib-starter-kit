@@ -1,4 +1,5 @@
 import IndexApi from './IndexApi';
+import createFallback from '../lskjs/server/createFallback';
 
 const getTemplate = (req, res) => {
   try {
@@ -15,18 +16,17 @@ const getTemplate = (req, res) => {
 
 
 export default function () {
+  const fallback = createFallback({
+    url: __DEV__ ? this.config.fallbackUrl : null,
+    fallback: `${process.cwd()}/public/assets/no-avatar.png`,
+  });
   return {
     '/': getTemplate,
     '/sonya': getTemplate,
     '/yukioru': getTemplate,
-
     '/api': new IndexApi(this),
-    '/storage/*': async () => {
-      // TODO: МАПИНГ СТАТИКИ С ПРОДА ПОСМОТРЕТЬ КАК У ХАЙДЖЕЯ
-      //
-    },
-    '/assets': { '*': () => ({ err: '!!!! route' }) }, // TODO: ПОДУМАТЬ
-    '*': async this.reactApp.render,;
-    },
+    '/storage/*': fallback,
+    '/assets/*': fallback,
+    '*': this.reactApp.render,
   };
 }

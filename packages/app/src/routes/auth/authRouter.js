@@ -2,7 +2,7 @@ import get from 'lodash/get';
 
 export default {
   async action({ next, page }) {
-    if (__SERVER__) return page.loading();
+    // if (__SERVER__) return page.loading();
     return page.next(next);
   },
   children: [
@@ -13,10 +13,6 @@ export default {
     {
       path: '/signup',
       async action({ page, t, uapp, user }) {
-        console.log(5656565);
-        if (__SERVER__) return page.loading();
-        console.log(12312312312312);
-        
         const auth = await uapp.module('auth');
         console.log({ auth }, auth.signupAndLogin);
 
@@ -38,7 +34,7 @@ export default {
     {
       path: '/login',
       async action({ page, t, uapp, user }) {
-        if (__SERVER__) return page.loading();
+        // if (__SERVER__) return page.loading();
         const auth = await uapp.module('auth');
         console.log({ auth }, auth.qwe, auth.signupAndLogin);
         if (get(user, 'meta.approvedEmail')) return page.redirect('/cabinet');

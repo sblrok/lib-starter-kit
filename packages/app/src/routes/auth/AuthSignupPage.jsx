@@ -12,6 +12,7 @@ const SignupFormView = ({ control, status, errors }) => (
   <Form className="ant-form ant-form-vertical">
     <FastField {...control('email')} />
     <FastField {...control('password')} />
+    <FastField {...control('name')} />
     <FormSubmit
       block
       status={status}
