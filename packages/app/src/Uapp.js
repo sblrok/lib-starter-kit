@@ -27,17 +27,17 @@ export default class Uapp extends BaseUapp {
     console.log('module', name);
     if (this._async_modules[name]) return this._async_modules[name];
     if (name === 'auth') {
-      const { default: Auth } = await import('@lskjs/auth/uapp');
-      console.log({ Auth });
+      const { default: AuthModule } = await import('@lskjs/auth/uapp');
+      console.log({ AuthModule });
       // console.log(123123123);
-      const auth = new Auth(this);
-      console.log({ auth });
+      const auth = new AuthModule({ app: this });
+      console.log({ auth }, auth.qwe);
       // const auth = new Auth();
       if (auth.init) {
         console.log('auth.init');
         await auth.init();
       }
-      
+
 
       this._async_modules = auth;
       console.log('module', name, 'SUCCESS');
