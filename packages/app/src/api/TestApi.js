@@ -1,9 +1,11 @@
 /* eslint-disable global-require */
+/* global __STAGE__ */
 import errMerge from '@lskjs/utils/errMerge';
 import e from '@lskjs/utils/e';
 import Err from '@lskjs/utils/Err';
+import Api from './BaseApi';
 
-export default class AdmindApi extends Api {
+export default class TestApi extends Api {
   getRoutes() {
     return {
       '/res/1': () => 123,
@@ -48,6 +50,7 @@ export default class AdmindApi extends Api {
   async pushTest(req) {
     await this.isAuth(req);
     const userId = req.user._id;
+
     if (__STAGE__ === 'master') throw '__STAGE__ === master';
     const { UserModel } = this.app.models;
     const user = await UserModel.findById(userId);
