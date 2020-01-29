@@ -14,10 +14,8 @@ export default {
       path: '/signup',
       async action({ page, t, uapp, user }) {
         const auth = await uapp.module('auth');
-        console.log({ auth }, auth.signupAndLogin);
-
         if (get(user, 'meta.approvedEmail')) return page.redirect('/cabinet');
-        const onSubmit = uapp.createOnSubmit(async (value) => {
+        const onSubmit = uapp.catchError(async (value) => {
           const { user: newUser } = await auth.signupAndLogin(value);
           uapp.redirect(`/cabinet/users/${newUser._id}`);
         });
@@ -34,12 +32,10 @@ export default {
     {
       path: '/login',
       async action({ page, t, uapp, user }) {
-        // if (__SERVER__) return page.loading();
         const auth = await uapp.module('auth');
-        console.log({ auth }, auth.qwe, auth.signupAndLogin);
         if (get(user, 'meta.approvedEmail')) return page.redirect('/cabinet');
-        const onSubmit = uapp.createOnSubmit(async (value) => {
-          await auth.login({ email: (value.email).toLowerCase(), password: value.password });
+        const onSubmit = uapp.catchError(async (value) => {
+          await auth.login(value);
           uapp.redirect('/cabinet');
         });
         const view = 'login';
@@ -65,4 +61,5 @@ export default {
       },
     },
   ],
+
 };
