@@ -1,14 +1,11 @@
 /* eslint-disable global-require */
+import Err from '@lskjs/utils/Err';
 
 export default {
   path: '',
-  // async action({ next, page }) {
-  //   console.log(page);
-  //   return page
-  //     .layout(MainLayout)
-  //     .errorLayout(ErrorLayout)
-  //     .next(next);
-  // },
+  async action({ next, page }) {
+    return page.next(next).catch(err => page.component(import('./ErrorPage'), { err }));
+  },
   children: [
     {
       path: '',
@@ -25,7 +22,10 @@ export default {
     {
       path: '(.*)',
       action({ path }) {
-        throw `Not found: ${path}`;
+        throw new Err('E_404', {
+          message: `Not found path ${path}`,
+          path,
+        });
       },
     },
   ],
