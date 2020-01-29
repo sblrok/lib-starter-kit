@@ -1,15 +1,15 @@
 import get from 'lodash/get';
 
 export default {
-  async action({ next, page }) {
-    // if (__SERVER__) return page.loading();
-    return page.next(next);
-  },
+  // async action({ next, page }) {
+  //   // if (__SERVER__) return page.loading();
+  //   return page.next(next);
+  // },
   children: [
     {
       path: '',
       action: ({ page }) => page.redirect('/auth/login'),
-    }, 
+    },
     {
       path: '/signup',
       async action({ page, t, uapp, user }) {
@@ -49,6 +49,19 @@ export default {
             url: '/auth/login',
           })
           .component(import('./AuthSigninPage'), { view, onSubmit });
+      },
+    },
+    {
+      path: '/logout',
+      async action({ page, t, uapp, user }) {
+        console.log('logout');
+        
+        return page
+          .meta({
+            title: t('authPage.logout'),
+            url: '/auth/logout',
+          })
+          .component(import('./AuthLogoutPage'));
       },
     },
   ],
