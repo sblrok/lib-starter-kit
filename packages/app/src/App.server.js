@@ -5,7 +5,7 @@ import ReactApp from '@lskjs/reactapp';
 import BaseHtml from '@lskjs/reactapp/Html';
 import NotifyLogger from 'notify-logger';
 import get from 'lodash/get';
-import Grant from './Grant';
+import Grant from '@lskjs/uapp/Grant';
 
 // import cors from 'cors';
 import Uapp from './Uapp';
@@ -55,11 +55,8 @@ ${require('fs')
 }
 
 export default class App extends ServerApp {
+  grant = new Grant({ app: this, rules: this.getGrantRules() });
   getRoutes = require('./api').default;
-
-
-  grant = new Grant({ app: this });
-
   staticDir = `${__dirname}/../public`;
   getStatics() {
     return {
@@ -70,6 +67,9 @@ export default class App extends ServerApp {
       // '/static': `${__dirname}/../public/static`,
       // '/favicon.ico': `${__dirname}/../public/favicon.ico`,
     };
+  }
+  getGrantRules() {
+    return require('./grantRules').default;
   }
   getModels() {
     return {
