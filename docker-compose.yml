@@ -1,0 +1,24 @@
+# docker-compose up -d --build
+version: "3"
+services:
+  app:
+    # image: node:13.6.0-alpine
+    image: node:13.6.0
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.dev
+    working_dir: /app
+    command: npm run dev
+    volumes:
+        - .:/app
+        # - ./storage:/app/src/public/storage
+    ports:
+      - 8081:8080
+      - 3001:3000
+    environment:
+      PORT: 8080
+      # ENV: production
+      # NODE_ENV: production
+      # PRODUCTION: production
+      # DB_URI: mongodb://s2.mgbeta.ru:10008/skillbranch
+      # SITE_URL: http://devintensive.softdesign-apps.ru
