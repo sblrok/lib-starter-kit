@@ -69,7 +69,7 @@ export default class App extends ServerApp {
     };
   }
   getGrantRules() {
-    return require('./grantRules').default;
+    return require('./grantRules');
   }
   getModels() {
     return {

@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import BaseUapp from '@lskjs/uapp';
 import axios from 'axios';
-import Grant from '@lskjs/uapp/Grant';
+import grantRules from './grantRules';
 
 if (__CLIENT__) {
   // require('./assets/styles.css');
@@ -9,7 +9,6 @@ if (__CLIENT__) {
 }
 
 export default class Uapp extends BaseUapp {
-  grant = new Grant({ app: this, rules: this.getGrantRules() });
   provide() {
     return {
       ...super.provide(),
@@ -22,9 +21,9 @@ export default class Uapp extends BaseUapp {
   getRoutes() {
     return require('./routes').default;
   }
-
+  
   getGrantRules() {
-    return require('./grantRules').default;
+    return grantRules;
   }
   getAsyncModules() {
     return {
@@ -32,7 +31,6 @@ export default class Uapp extends BaseUapp {
       auth: () => import('@lskjs/auth/uapp'),
     };
   }
-
   getModules() {
     return {
       ...super.getModules(),

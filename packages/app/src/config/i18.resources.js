@@ -1,9 +1,9 @@
 /* eslint-disable global-require */
 export default {
   en: {
-    // translation: require('../../public/locales/en/translation.json'),
+    translation: require('../../i18/en.json'),
   },
   ru: {
-    // translation: require('../../public/locales/ru/translation.json'),
+    translation: require('../../i18/ru.json'),
   },
 };

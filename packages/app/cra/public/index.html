@@ -24,6 +24,20 @@
     -->
     <title>React App</title>
     <script src="//localhost:8080/api/env.js"></script>
+    <script>
+      if (typeof __STAGE__ === 'undefined') {
+        const tryAgain = () => {
+          console.log('SERVER DOWN: checking avaliablity');
+          fetch('//localhost:8080/api/env.json')
+          .then(response => {
+            console.log('SERVER UP: trying to reload page');
+            location.reload();
+          })
+          .catch(() => setTimeout(tryAgain, 1000))
+        }
+        tryAgain();
+      }
+    </script>
     <!-- 111 -->
     <!-- 222 -->
   </head>

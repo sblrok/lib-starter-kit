@@ -1,7 +1,11 @@
 import get from 'lodash/get';
 
 const rules = {
-  'cabinet.access': () => true,
+  'cabinet.access': () => {
+    console.log('12312312312 cabinet.access');
+
+    return true;
+  },
 
   'requests.create': async function ({ user, userId, ...params }) {
     if (user.accountType === 'PREMIUN') return true;

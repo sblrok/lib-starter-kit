@@ -35,16 +35,7 @@ export default {
     {
       path: '/login',
       async action({ page, t, uapp, grant }) {
-
-// {action,
-// userId
-// ....params
-
-
         const auth = await uapp.module('auth');
-        // console.log(123123, await grant.can(userId, action, {});
-        console.log(123123, await grant.can({ action: 'cabinet.access' }));
-        
         if (await grant.can('cabinet.access')) return page.redirect('/cabinet');
         const onSubmit = uapp.catchError(async (value) => {
           await auth.login(value);
