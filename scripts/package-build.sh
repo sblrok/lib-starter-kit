@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 mkdir -p ${DIST:-build} && \
 cp package.json ${DIST:-build}/ && \
 cp package-lock.json ${DIST:-build}/ && \

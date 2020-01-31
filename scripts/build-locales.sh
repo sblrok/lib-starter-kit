@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 rm -rf packages/app/locales && \
 node node_modules/@lskjs/build-locales/bin/build-locales --locales ru,en --link https://docs.google.com/spreadsheets/d/1pOG6jmCV81ITNk4M8jV8sxxs8RnjoYCjQjGCkTmlajk/edit#gid=0 --dist ./packages/app/locales && \
 cp packages/app/locales/ru.json packages/app/locales/ru/translation.json && \
