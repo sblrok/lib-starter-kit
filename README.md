@@ -1,4 +1,24 @@
 # Kit
+## Sample project example based on Lego Starter Kit
+
+## Develop 
+1. `npm install` –– Install node deps
+2. `npm run bootstrap` –– Install packages/* deps
+3. `npm run dev` –– Run develop mode for all packages
+
+## Develop in Docker
+
+1. `docker-compose run app npm install`
+2. `docker-compose run app npm run bootstrap`
+3. `docker-compose run app npm run dev`
+
+
+## Tips
+- `npm run link` –– if you want to link other developing packages in the monorep and packages
+- `npm run update` –– if you want to update all developing packages versions in the monorep and packages
+
+
+---------
 
 Just a kit
 
