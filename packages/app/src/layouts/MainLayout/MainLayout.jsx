@@ -1,25 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container } from '@lskjs/ui/Grid';
-import TopBar from '../../components/TopBar';
-import SubBar from '../../components/SubBar';
-
 import Layout from '../Layout';
+import Navbar from './Navbar';
 
 const MainLayout = ({ children }) => (
   <Layout>
     <Layout.Wrapper>
       <Layout.Header>
-        <Layout.TopBar>
-          <Container>
-            <TopBar />
-          </Container>
-        </Layout.TopBar>
-        <Layout.SubBar>
-          <Container>
-            <SubBar />
-          </Container>
-        </Layout.SubBar>
+        <Navbar />
       </Layout.Header>
       <Layout.Body>
         <Container>
@@ -31,7 +20,7 @@ const MainLayout = ({ children }) => (
 );
 
 MainLayout.propTypes = {
-  children: PropTypes.instanceOf(PropTypes.any).isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 export default MainLayout;

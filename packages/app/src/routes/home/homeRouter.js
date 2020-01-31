@@ -4,7 +4,11 @@ export default {
   children: [
     {
       path: '',
-      action({ page, config = {} }) {
+      async action({ page, config = {}, grant }) {
+
+        console.log('grant.cabinet', await grant.can('cabinet'));
+        console.log('grant.access', await grant.can('cabinet.access'));
+        
         return page.component(import('./HomeIndexPage'), { about: config.about });
       },
     },

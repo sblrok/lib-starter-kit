@@ -3,6 +3,7 @@ import BaseIndexApi from '@lskjs/server-api/IndexApi';
 import AdminApi from './AdminApi';
 // import AuthApi from '@lskjs/auth/server/Api';
 import AuthApi from './AuthApi';
+import GrantApi from './GrantApi';
 import TestApi from './TestApi';
 import getDocs from './docs';
 import UsersMeApi from './UsersMeApi';
@@ -12,6 +13,7 @@ export default class IndexApi extends BaseIndexApi {
   models = this.app.models;
   testApi = new TestApi(this.app);
   authApi = new AuthApi(this.app);
+  grantApi = new GrantApi(this.app);
   adminApi = new AdminApi(this.app);
   usersMeApi = new UsersMeApi(this.app);
   getDocs = getDocs;
@@ -19,6 +21,7 @@ export default class IndexApi extends BaseIndexApi {
   getRoutes() {
     return {
       ...super.getRoutes(),
+      '/grant': this.grantApi.getRoutes(),
       '/auth': this.authApi.getRoutes(),
       '/test': this.testApi.getRoutes(),
       '/admin': this.adminApi.getRoutes(),

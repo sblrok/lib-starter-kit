@@ -1,10 +1,14 @@
 import get from 'lodash/get';
 
 export default {
-  // async action({ next, page }) {
-  //   // if (__SERVER__) return page.loading();
-  //   return page.next(next);
-  // },
+  async action({ next, page, t }) {
+    return page
+      .meta({
+        title: t('authPage.page'),
+        url: '/auth',
+      })
+      .next(next);
+  },
   children: [
     {
       path: '',
@@ -12,14 +16,13 @@ export default {
     },
     {
       path: '/signup',
-      async action({ page, t, uapp, user }) {
+      async action({ page, t, uapp, grant }) {
         const auth = await uapp.module('auth');
-        if (get(user, 'meta.approvedEmail')) return page.redirect('/cabinet');
+        if (await grant.can('cabinet.access')) return page.redirect('/cabinet');
         const onSubmit = uapp.catchError(async (value) => {
-          const { user: newUser } = await auth.signupAndLogin(value);
-          uapp.redirect(`/cabinet/users/${newUser._id}`);
+          const { user } = await auth.signupAndLogin(value);
+          uapp.redirect(`/cabinet/users/${user._id}`);
         });
-
         const view = 'signup';
         return page
           .meta({
@@ -31,9 +34,18 @@ export default {
     },
     {
       path: '/login',
-      async action({ page, t, uapp, user }) {
+      async action({ page, t, uapp, grant }) {
+
+// {action,
+// userId
+// ....params
+
+
         const auth = await uapp.module('auth');
-        if (get(user, 'meta.approvedEmail')) return page.redirect('/cabinet');
+        // console.log(123123, await grant.can(userId, action, {});
+        console.log(123123, await grant.can({ action: 'cabinet.access' }));
+        
+        if (await grant.can('cabinet.access')) return page.redirect('/cabinet');
         const onSubmit = uapp.catchError(async (value) => {
           await auth.login(value);
           uapp.redirect('/cabinet');
@@ -41,17 +53,23 @@ export default {
         const view = 'login';
         return page
           .meta({
-            title: t('authPage.signup'),
+            title: t('authPage.login'),
             url: '/auth/login',
           })
-          .component(import('./AuthSigninPage'), { view, onSubmit });
+          .component(import('./AuthLoginPage'), { view, onSubmit });
       },
     },
     {
       path: '/logout',
-      async action({ page, t, uapp, user }) {
-        console.log('logout');
-        
+      async action({ page, t, uapp }) {
+        const auth = await uapp.module('auth');
+        // console.log('logout', auth.logout());
+        setTimeout(() => {
+          auth.logout();
+          console.log('logout');
+        }, 1000);
+
+
         return page
           .meta({
             title: t('authPage.logout'),

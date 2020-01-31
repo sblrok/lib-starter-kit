@@ -1,27 +1,43 @@
 import React from 'react';
 import A from '@lskjs/ui/A';
 import Slide from '@lskjs/ui/Slide';
+import Link from '@lskjs/ui/Link';
+import Button from '@lskjs/button';
+import Page from '~/lskjs/ui/Page';
 
 export default ({ about = {} }) => (
-  <Slide
-    full
-    overlay
-    style={{
-      color: '#fff',
-    }}
-  >
-    <div>
-      <h1>{about.title}</h1>
-      <p>{about.description}</p>
+  <Page>
+    <Slide
+      full
+      overlay
+      style={{
+        color: '#fff',
+      }}
+    >
       <div>
-        {__DEV__ ? 'DEV' : '?'}
-
+        <Page.Header />
+        <h1>{about.title}</h1>
+        <p>{about.description}</p>
+        <p>{__DEV__ ? 'DEV' : '?'}</p>
+        <Button
+          componentClass={Link}
+          href="/cabinet"
+        >
+          Cabinet
+        </Button>
+      </div>
+    </Slide>
+    <Slide
+      full
+      overlay
+      style={{
+        color: '#fff',
+      }}
+    >
+      <div>
         <h2>Лендинг</h2>
         <p><A href="/"> Главная</A></p>
         <p><A href="/about"> О проекте</A></p>
-        <h2>Кабинет</h2>
-        <p><A href="/cabinet"> Кабинет</A></p>
-
 
         <hr />
         <h2>Авторизация</h2>
@@ -49,6 +65,6 @@ export default ({ about = {} }) => (
         <h2>Админка</h2>
         <p><A href="/admin"> админка</A></p>
       </div>
-    </div>
-  </Slide>
+    </Slide>
+  </Page>
 );

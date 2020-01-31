@@ -1,6 +1,6 @@
 export default {
-  async action({ next, page }) {
-    if (__SERVER__) return page.loading();
+  async action({ next, page, grant }) {
+    if (!await grant.can('cabinet.access')) return page.redirect('/auth');
     return page.next(next);
   },
   children: [

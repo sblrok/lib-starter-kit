@@ -3,11 +3,9 @@ import pick from 'lodash/pick';
 import { Form, FastField, withFormik } from 'formik';
 import createFormWithI18 from '@lskjs/form/createFormWithI18';
 import FormSubmit from '@lskjs/form/FormSubmit';
-import Page from '@lskjs/ui/Page';
-
 import T from '@lskjs/ui/T';
+import Page from '~/lskjs/ui/Page';
 import getAuthControls from './getAuthControls';
-
 
 const SigninFormView = ({ control, status, errors }) => (
   <Form className="ant-form ant-form-vertical">

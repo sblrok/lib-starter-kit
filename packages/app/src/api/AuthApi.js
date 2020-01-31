@@ -1,4 +1,4 @@
-import Api from './BaseApi';
+import Api from '@lskjs/auth/server/Api';
 
 export default class AuthApi extends Api {
   getRoutes() {

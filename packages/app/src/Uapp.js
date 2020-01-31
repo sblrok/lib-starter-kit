@@ -1,6 +1,7 @@
 /* eslint-disable global-require */
 import BaseUapp from '@lskjs/uapp';
 import axios from 'axios';
+import Grant from '@lskjs/uapp/Grant';
 
 if (__CLIENT__) {
   // require('./assets/styles.css');
@@ -8,9 +9,11 @@ if (__CLIENT__) {
 }
 
 export default class Uapp extends BaseUapp {
+  grant = new Grant({ app: this, rules: this.getGrantRules() });
   provide() {
     return {
       ...super.provide(),
+      grant: this.grant,
       history: {
         push: () => null,
       },
@@ -19,33 +22,17 @@ export default class Uapp extends BaseUapp {
   getRoutes() {
     return require('./routes').default;
   }
-  async init() {
-    await super.init();
-    this._async_modules = {};
+
+  getGrantRules() {
+    return require('./grantRules').default;
   }
-  async module(name) {
-    console.log('module', name);
-    if (this._async_modules[name]) return this._async_modules[name];
-    if (name === 'auth') {
-      const { default: AuthModule } = await import('@lskjs/auth/uapp');
-      console.log({ AuthModule });
-      // console.log(123123123);
-      const auth = new AuthModule({ app: this });
-      console.log({ auth }, auth.qwe);
-      // const auth = new Auth();
-      if (auth.init) {
-        console.log('auth.init');
-        await auth.init();
-      }
-
-
-      this._async_modules = auth;
-      console.log('module', name, 'SUCCESS');
-
-      return auth;
-    }
-    return null;
+  getAsyncModules() {
+    return {
+      ...super.getAsyncModules(),
+      auth: () => import('@lskjs/auth/uapp'),
+    };
   }
+
   getModules() {
     return {
       ...super.getModules(),
@@ -53,9 +40,8 @@ export default class Uapp extends BaseUapp {
     };
   }
   getStores() {
-    this.stores = super.getStores();
     return {
-      ...this.stores,
+      ...super.getStores(),
       ...require('./stores').default(this),
     };
   }

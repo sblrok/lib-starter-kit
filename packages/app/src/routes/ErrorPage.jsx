@@ -7,7 +7,7 @@ export default ({ err }) => (
     <h1>
       {`Error: ${err.code || 'unknown error'}`}
     </h1>
-    <If condition={err.message}>
+    <If condition={!!(err.message)}>
       <h2>
         {err.message}
       </h2>

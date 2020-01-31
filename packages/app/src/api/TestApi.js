@@ -5,6 +5,7 @@ import e from '@lskjs/utils/e';
 import Err from '@lskjs/utils/Err';
 import Api from './BaseApi';
 
+
 export default class TestApi extends Api {
   getRoutes() {
     return {
