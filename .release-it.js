@@ -10,7 +10,8 @@ module.exports = {
   },
 
   github: {
-    release: true,
+    release: false,
+    // release: true,
     releaseName: "v${version}",
   },
 
