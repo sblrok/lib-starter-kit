@@ -1,3 +1,2 @@
-rm -rf release && \
-DEBUG=0 DIST=release `dirname "$0"`/package-build.sh && \
+`dirname "$0"`/package-pre-release.sh && \
 npm publish release
