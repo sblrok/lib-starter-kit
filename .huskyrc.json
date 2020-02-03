@@ -1,6 +1,8 @@
 {
   "hooks": {
-    "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-    "pre-commit2": "echo 123"
+    "prepare-commit-msg2": "exec < /dev/tty && git cz --hook || true",
+    "pre-commit2": "echo 123",
+    "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS",
+    "pre-commit2": "lint-staged"
   }
 }
