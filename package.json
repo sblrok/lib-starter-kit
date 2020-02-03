@@ -5,6 +5,7 @@
   "repository": "https://github.com/isuvorov/lib-starter-kit",
   "keywords": [],
   "scripts": {
+    "commit": "npx git-cz",
     "dev": "BUILD_PARAMS=--copy-files ./scripts/dev.sh",
     "dev:lib1": "npm run watch --scope @lib-initial-kit/lib1",
     "release": "BUILD_PARAMS=--copy-files lerna publish --skip-npm",
@@ -34,6 +35,11 @@
     "publish:latest": "lerna publish --exact --concurrency 1 --force-publish",
     "publish:next": "npm run publish:latest -- --npm-tag=next",
     "publish:debug": "npm run publish:latest -- --npm-tag=debug --no-push"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   },
   "files": [
     "build/"
@@ -66,8 +72,10 @@
     "babel-plugin-root-import": "^6.1.0",
     "babel-plugin-transform-class-property-arrow-to-bind": "^1.1.0",
     "babel-preset-minify": "^0.5.0",
+    "company-commit": "^1.1.1",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
