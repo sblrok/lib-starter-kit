@@ -116,5 +116,6 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  }
+  },
+  "version": "0.1.2"
 }

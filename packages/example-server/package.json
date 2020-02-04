@@ -30,19 +30,13 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.3",
-    "@lskjs/apiquery": "^0.37.2",
     "@lskjs/db": "^0.37.2",
-    "@lskjs/i18": "^0.37.2",
     "@lskjs/log": "^0.37.4",
     "@lskjs/module": "^0.37.5",
     "@lskjs/server": "^0.37.5",
     "@lskjs/utils": "^0.37.5",
     "bluebird": "^3.5.3",
-    "js-cookie": "^2.2.0",
-    "lodash": "^4.17.11",
-    "mobx": "^5.9.4",
-    "moment": "2.24.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6"
+    "lodash": "4.17.13",
+    "mobx": "^5.9.4"
   }
 }
