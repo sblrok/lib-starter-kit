@@ -1,3 +1,2 @@
-#!/bin/sh
-npm install && \
+#!/usr/bin/env bash
 lerna exec -- npm run bootstrap

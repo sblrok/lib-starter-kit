@@ -1,5 +1,4 @@
-#!/bin/sh
-DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+#!/usr/bin/env bash
 
 # pre link
 rm -rf release && \

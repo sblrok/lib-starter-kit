@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 VAR=$(git status --porcelain 2>/dev/null | wc -l)
 echo $VAR
 if [ $VAR -gt 0 ]; then
