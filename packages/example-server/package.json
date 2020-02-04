@@ -1,6 +1,6 @@
 {
   "name": "@lskjs/example-server",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Hello world",
   "author": "Igor Suvorov <hi@isuvorov.com>",
   "license": "MIT",
