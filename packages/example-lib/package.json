@@ -1,6 +1,6 @@
 {
   "name": "@lskjs/example-lib",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Hello world",
   "author": "Igor Suvorov <hi@isuvorov.com>",
   "license": "MIT",
@@ -28,8 +28,7 @@
     "styleguide": "../../scripts/package-styleguide.sh"
   },
   "dependencies": {
-    "react": "^16.8.6",
-    "prop-types": "^15.7.2"
-  },
-  "devDependencies": {}
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6"
+  }
 }

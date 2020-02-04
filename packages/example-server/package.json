@@ -1,6 +1,6 @@
 {
   "name": "@lskjs/example-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Hello world",
   "author": "Igor Suvorov <hi@isuvorov.com>",
   "license": "MIT",
@@ -44,6 +44,5 @@
     "moment": "2.24.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6"
-  },
-  "devDependencies": {}
+  }
 }
