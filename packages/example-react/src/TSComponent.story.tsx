@@ -19,7 +19,7 @@ Demo.defaultProps = {
   children: 'Hello World',
 };
 
-export default ({ storiesOf }): any =>
+export default ({ storiesOf }: { storiesOf: (name: string, module: {}) => any }): any =>
   storiesOf('Typescript', module)
     .add('default', () => <Demo />)
     .add('color=red', () => <Demo color="red" />);
