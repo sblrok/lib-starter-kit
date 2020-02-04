@@ -1,5 +1,5 @@
 {
-  "name": "@lib-starter-kit/example-server",
+  "name": "@lskjs/example-server",
   "version": "0.0.1",
   "description": "Hello world",
   "author": "Igor Suvorov <hi@isuvorov.com>",
