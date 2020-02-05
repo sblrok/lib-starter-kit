@@ -6,15 +6,11 @@ coverage
 **/node_modules
 
 build
-release
-release-*
+release*
 storage
-.env.js
-.env.json
+.env*
 
 packages/*/build
-packages/*/release
-packages/*/release-*
+packages/*/release*
 packages/*/storage
-packages/*/.env.js
-packages/*/.env.json
+packages/*/.env*

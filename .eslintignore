@@ -1,15 +1,15 @@
 **/node_modules
 
 build
-release
-release-*
+release*
 storage
 .storybook
+.env*
 
 packages/*/build
-packages/*/release
-packages/*/release-*
+packages/*/release*
 packages/*/storage
 packages/*/.storybook
+packages/*/.env*
 packages/*/cra
 packages/*/public
