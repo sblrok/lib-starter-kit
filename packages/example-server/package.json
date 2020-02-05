@@ -29,14 +29,15 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.3",
+    "@babel/polyfill": "^7.8.3",
     "@lskjs/db": "^0.37.2",
     "@lskjs/log": "^0.37.4",
     "@lskjs/module": "^0.37.5",
     "@lskjs/server": "^0.37.5",
     "@lskjs/utils": "^0.37.5",
-    "bluebird": "^3.5.3",
-    "lodash": "4.17.13",
-    "mobx": "^5.9.4"
-  }
+    "bluebird": "^3.7.2",
+    "lodash": "^4.17.15",
+    "mobx": "^5.15.4"
+  },
+  "devDependencies": {}
 }
