@@ -3,7 +3,7 @@
 const shell = require('shelljs');
 
 const DIST = process.env.DIST || 'build';
-const BUILD_PARAMS = process.env.DIST || '--copy-files';
+const BUILD_PARAMS = process.env.BUILD_PARAMS || '--copy-files';
 console.log(`DIST=${DIST} BUILD_PARAMS=${BUILD_PARAMS}`);
 
 async function packageBuild() {
@@ -18,18 +18,6 @@ async function packageBuild() {
   // https://docs.google.com/document/d/1UFm10TONaNWok3aEPzUP_OjZ6lEvwlYqyJBUcugLfso/edit#heading=h.u8gil4dopy47
   res = await shell.exec(
     [
-      '../../node_modules/typescript/bin/tsc',
-      '--declaration',
-      '--declarationMap',
-      '--emitDeclarationOnly',
-      `--outDir ${DIST}`,
-      'src/**.ts',
-    ].join(' '),
-  );
-  if (res.code !== 0 && res.stdout.trim() !== "error TS6053: File 'src/**.ts' not found.") throw res;
-
-  res = await shell.exec(
-    [
       '../../node_modules/@babel/cli/bin/babel.js',
       'src',
       `--out-dir ${DIST}`,
@@ -39,6 +27,19 @@ async function packageBuild() {
     ].join(' '),
   );
   if (res.code !== 0) throw res;
+
+  res = await shell.exec(
+    [
+      '../../node_modules/typescript/bin/tsc',
+      '--declaration',
+      '--declarationMap',
+      '--emitDeclarationOnly',
+      '--esModuleInterop',
+      `--outDir ${DIST}`,
+      'src/**.ts',
+    ].join(' '),
+  );
+  if (res.code !== 0 && res.stdout.trim() !== "error TS6053: File 'src/**.ts' not found.") throw res;
 
   // #  --minified
   // # npx babel src --out-dir ${DIST:-build} --source-maps --minified --comments false --copy-files  ${BUILD_PARAMS}
