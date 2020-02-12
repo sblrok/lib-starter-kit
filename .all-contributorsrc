@@ -2,7 +2,7 @@
   "projectName": "lib-starter-kit",
   "projectOwner": "isuvorov",
   "repoType": "github",
-  "repoHost": "https://github.com/isuvorov/lib-starter-kit",
+  "repoHost": "isuvorov/lib-starter-kit",
   "files": [
     "README.md"
   ],
@@ -23,7 +23,8 @@
         "example",
         "ideas",
         "review",
-        "test"
+        "test",
+        "a11y"
       ]
     }
   ],
