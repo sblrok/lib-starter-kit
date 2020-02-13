@@ -14,6 +14,7 @@
     "postversion": "npm run release",
     "lint:js": "../../scripts/package-lint-js.sh",
     "bootstrap": "../../scripts/package-bootstrap.sh",
+    "clear": "../../scripts/package-clear.sh",
     "bootstrap:nodemodules": "../../scripts/package-bootstrap-nodemodules.sh",
     "update": "../../scripts/package-update.sh",
     "build": "BUILD_PARAMS=--copy-files ../../scripts/package-build.sh",

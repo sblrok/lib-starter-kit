@@ -14,6 +14,7 @@
     "release:changelog": "lerna-changelog",
     "build-locales": "./scripts/build-locales.sh",
     "bootstrap": "./scripts/bootstrap.sh",
+    "clear": "./scripts/clear.sh",
     "update-starter-kit": "./scripts/check-unstaged-files.sh && ./scripts/update-starter-kit.sh",
     "update": "lerna exec -- npm run update",
     "update-force": "lerna exec -- ../../scripts/package-update.sh",
