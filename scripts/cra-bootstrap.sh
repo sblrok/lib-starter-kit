@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-cd packages/app/cra && npm i && cd ../../..
+cd cra && npm i && cd ../

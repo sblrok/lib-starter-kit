@@ -12,6 +12,10 @@ then
   ../../node_modules/npm-check-updates/bin/ncu --dep=prod,dev,peer,optional && \
   npm run bootstrap:nodemodules && \
   npm run link:me
+  if [[ -d ./cra ]]
+  then
+    sh ../../scripts/cra-bootstrap.sh
+  fi
 else
   true
 fi && \
