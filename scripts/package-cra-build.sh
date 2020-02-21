@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-cd packages/app && \
-npm run build && \
-echo "OK - npm run build" && \
 rm -rf cra/build && \
 rm -rf cra/src && \
 pwd && \

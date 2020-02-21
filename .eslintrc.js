@@ -104,6 +104,7 @@ const res = {
     __SERVER__: true,
     __CLIENT__: true,
     __DEV__: true,
+    __STAGE__: true,
   },
   rules,
   settings: {

@@ -14,4 +14,5 @@ storage
 packages/*/build
 packages/*/release*
 packages/*/storage
+packages/*/public/footer.html
 packages/*/.env*
