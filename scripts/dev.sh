@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-npm run dev
+lerna exec -- npm run dev
