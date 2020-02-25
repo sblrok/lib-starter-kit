@@ -1,2 +1,5 @@
 #!/usr/bin/env bash
-cd cra && npm i && cd ../
+cd cra && \
+../../../node_modules/npm-check-updates/bin/ncu --dep=prod,dev,peer,optional && \
+npm i && \
+cd ../
