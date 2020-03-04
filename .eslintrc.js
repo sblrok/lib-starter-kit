@@ -1,3 +1,4 @@
+/* eslint-disable */
 var path = require('path');
 const user = process.env.USER;
 // const error = user === 'isuvorov' ? 'off' : 'error';

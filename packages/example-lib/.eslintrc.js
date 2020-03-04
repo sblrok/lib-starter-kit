@@ -1,3 +1,4 @@
+/* eslint-disable */
 var path = require('path');
 const user = process.env.USER;
 // const error = user === 'isuvorov' ? 'off' : 'error';
@@ -48,7 +49,7 @@ const rules = {
 
 const res = {
   parser: 'babel-eslint',
-  parser: '@typescript-eslint/parser',
+  // parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     es6: true,
@@ -104,6 +105,7 @@ const res = {
     __SERVER__: true,
     __CLIENT__: true,
     __DEV__: true,
+    __STAGE__: true,
   },
   rules,
   settings: {
