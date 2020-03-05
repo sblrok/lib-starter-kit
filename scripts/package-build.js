@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
 const glob = require('glob');
 const shell = require('shelljs');
 
@@ -15,19 +15,6 @@ async function packageBuild() {
   });
 
   let res;
-  // https://github.com/shelljs/shelljs/issues/86
-  // https://docs.google.com/document/d/1UFm10TONaNWok3aEPzUP_OjZ6lEvwlYqyJBUcugLfso/edit#heading=h.u8gil4dopy47
-  res = await shell.exec(
-    [
-      '../../node_modules/@babel/cli/bin/babel.js',
-      'src',
-      `--out-dir ${DIST}`,
-      '--source-maps both',
-      '--extensions ".js,.jsx,.ts,.tsx"',
-      BUILD_PARAMS,
-    ].join(' '),
-  );
-  if (res.code !== 0) throw res;
 
   const list = glob.sync('src/**/**.ts');
   if (list.length) {
@@ -44,6 +31,19 @@ async function packageBuild() {
     );
     if (res.code !== 0 && res.stdout.trim() !== "error TS6053: File 'src/**.ts' not found.") throw res;
   }
+  // https://github.com/shelljs/shelljs/issues/86
+  // https://docs.google.com/document/d/1UFm10TONaNWok3aEPzUP_OjZ6lEvwlYqyJBUcugLfso/edit#heading=h.u8gil4dopy47
+  res = await shell.exec(
+    [
+      '../../node_modules/@babel/cli/bin/babel.js',
+      'src',
+      `--out-dir ${DIST}`,
+      '--source-maps both',
+      '--extensions ".js,.jsx,.ts,.tsx"',
+      BUILD_PARAMS,
+    ].join(' '),
+  );
+  if (res.code !== 0) throw res;
 
   // #  --minified
   // # npx babel src --out-dir ${DIST:-build} --source-maps --minified --comments false --copy-files  ${BUILD_PARAMS}

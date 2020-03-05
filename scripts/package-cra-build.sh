@@ -14,7 +14,7 @@ echo "OK - cra build" && \
 cd .. && \
 rm -rf public && \
 cp -R cra/build public && \
-./package-cra-build-extract.sh && \
+node ../../scripts/package-cra-build-extract.js && \
 cd .. && \
 #npm run dev:cra"
 echo "DONE"

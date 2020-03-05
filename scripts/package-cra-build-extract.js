@@ -12,11 +12,9 @@ function getVendorName(manifest, ext = 'css') {
       entrypoint.startsWith(prefix) &&
       !(entrypoint.startsWith(`${prefix}main.`) || entrypoint.startsWith(`${prefix}runtime-main.`)),
   );
-  if (vendorEntrypoints.length === 0) {
-    console.error(`WARNING no vendorEntrypoints ${ext} for manifest`, manifest);
-  }
-  if (vendorEntrypoints.length >= 2) {
-    console.log('vendorEntrypoints', vendorEntrypoints);
+  if (vendorEntrypoints.length === 0) throw `!vendorEntrypoints ${ext}`;
+  if (vendorEntrypoints.length === 2) {
+    console.log({ vendorEntrypoints });
     throw `MULTIPLE vendorEntrypoints${ext}`;
   }
   const path = vendorEntrypoints[0];
