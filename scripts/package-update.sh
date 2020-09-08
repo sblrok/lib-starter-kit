@@ -6,7 +6,7 @@ rm -rf .eslintrc.js && cp ../../.eslintrc.js .eslintrc.js && \
 rm -rf styleguide.config.js && cp ../../styleguide.config.js . && \
 rm -rf tsconfig.json && cp ../../tsconfig.json . && \
 # rm -rf .gitignore && \
-rm -rf .storybook && cp -R ../../.storybook/.storybook-package .storybook 
+rm -rf .storybook && cp -R ../../scripts/assets/.storybook/ .storybook 
 
 # update package \
 node ../../scripts/package-merge.js 
