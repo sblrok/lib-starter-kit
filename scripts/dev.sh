@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
-./scripts/env.sh && \
+set -o allexport
+source .env
+set +o allexport
 lerna exec -- npm run dev
