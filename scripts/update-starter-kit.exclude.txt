@@ -1,4 +1,7 @@
-*/
+packages/
+todo/
+node_modules/
+.idea
 .git
 .lskjs.js
 coverage
@@ -6,4 +9,4 @@ lerna.json
 README.md
 CHANGELOG.md
 .all-contributorsrc
-.env.js
+.env.*
