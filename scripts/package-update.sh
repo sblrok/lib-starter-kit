@@ -13,7 +13,7 @@ node ../../scripts/package-merge.js
 
 # update deps
 NCU_PACKAGES=`node -e "console.log(require('../../.lskjs.js').ncu.packages || '@nothing')"`
-echo ncu -u --save-exact --dep=prod,dev,peer,optional "$NCU_PACKAGES"  && \
-../../node_modules/npm-check-updates/bin/ncu -u --save-exact --dep=prod,dev,peer,optional "$NCU_PACKAGES"  && \
+echo ncu -u --dep=prod,dev,peer,optional "$NCU_PACKAGES"  && \
+../../node_modules/npm-check-updates/bin/ncu -u --dep=prod,dev,peer,optional "$NCU_PACKAGES"  && \
 npm install
-# ../../node_modules/npm-check-updates/bin/ncu -u --save-exact --dep=prod,dev,peer,optional  && \
+# ../../node_modules/npm-check-updates/bin/ncu -u --dep=prod,dev,peer,optional  && \

@@ -1,7 +1,7 @@
-
-if [[ -d ./cra ]]
+#!/usr/bin/env bash
+if [ -d ./cra ]
 then
-  sh ../../scripts/package-cra-dev.sh
+  npm run dev:cra-and-server
 else
   npm run watch
 fi

@@ -18,6 +18,8 @@
     "release:changelog": "lerna-changelog",
     "build-locales": "./scripts/build-locales.sh",
     "bootstrap": "./scripts/bootstrap.sh",
+    "dns": "./scripts/dns.sh",
+    "linkwatch": "./scripts/linkwatch.sh",
     "clear": "./scripts/clear.sh",
     "update-starter-kit": "./scripts/check-unstaged-files.sh && ./scripts/update-starter-kit.sh",
     "update": "lerna exec -- npm run update",

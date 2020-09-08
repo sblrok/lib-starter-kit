@@ -12,20 +12,26 @@ function getVendorName(manifest, ext = 'css') {
       entrypoint.startsWith(prefix) &&
       !(entrypoint.startsWith(`${prefix}main.`) || entrypoint.startsWith(`${prefix}runtime-main.`)),
   );
-  if (vendorEntrypoints.length === 0) throw `!vendorEntrypoints ${ext}`;
-  if (vendorEntrypoints.length === 2) {
-    console.log({ vendorEntrypoints });
+  if (vendorEntrypoints.length === 0) {
+    console.error(`WARNING no vendorEntrypoints ${ext} for manifest`, manifest);
+    return null;
+  }
+  if (vendorEntrypoints.length >= 2) {
+    console.log('vendorEntrypoints', vendorEntrypoints);
     throw `MULTIPLE vendorEntrypoints${ext}`;
   }
   const path = vendorEntrypoints[0];
   const filename = path.substr(prefix.length);
   return filename.substr(0, filename.length - ext.length - 1);
 }
-const vendorNameCss = `static/css/${getVendorName(manifest, 'css')}.css`;
-const vendorNameJs = `static/js/${getVendorName(manifest, 'js')}.js`;
-
-manifest.files['vendor.css'] = manifest.files[vendorNameCss];
-manifest.files['vendor.js'] = manifest.files[vendorNameJs];
+if (getVendorName(manifest, 'css')) {
+  const vendorNameCss = `static/css/${getVendorName(manifest, 'css')}.css`;
+  manifest.files['vendor.css'] = manifest.files[vendorNameCss];
+}
+if (getVendorName(manifest, 'js')) {
+  const vendorNameJs = `static/js/${getVendorName(manifest, 'js')}.js`;
+  manifest.files['vendor.js'] = manifest.files[vendorNameJs];
+}
 console.log(`LSK MODIFFY ASSET MANIFEST: ${assetManifestPath}`);
 console.log(`files["vendor.css"] => ${manifest.files['vendor.css']}`);
 console.log(`files["vendor.js"] => ${manifest.files['vendor.js']}`);
