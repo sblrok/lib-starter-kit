@@ -8,7 +8,7 @@ watchexec -r \
   -w $1 \
   --signal SIGTERM \
   -- \
-    rsync -av\
+    rsync -avEp --progress \
       --exclude node_modules \
       $1/ \
       $2

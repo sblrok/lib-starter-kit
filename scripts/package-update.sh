@@ -11,6 +11,13 @@ rm -rf .storybook && cp -R ../../.storybook/.storybook-package .storybook
 # update package \
 node ../../scripts/package-merge.js 
 
+if [ -d ./cra ]
+then
+  cp -R ../../scripts/assets/cra/* cra
+else
+  true
+fi
+
 # update deps
 NCU_PACKAGES=`node -e "console.log(require('../../.lskjs.js').ncu.packages || '@nothing')"`
 echo ncu -u --dep=prod,dev,peer,optional "$NCU_PACKAGES"  && \
