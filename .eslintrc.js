@@ -91,12 +91,9 @@ const res = {
   rules,
   settings: {
     'import/resolver': {
-      'babel-plugin-root-import': [
-        {
-          rootPathPrefix: '~',
-          rootPathSuffix: './src',
-        },
-      ],
+      node: {
+        paths: [path.resolve(__dirname, 'src')],
+      },
     },
   },
 };
